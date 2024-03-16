@@ -1,5 +1,6 @@
 package com.byh.biyesheji.controller;
 
+import com.byh.biyesheji.entity.ApplicationDocuments;
 import com.byh.biyesheji.pojo.*;
 import com.byh.biyesheji.service.*;
 import com.byh.biyesheji.util.Page;
@@ -9,9 +10,7 @@ import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -570,4 +569,16 @@ public class ForeController {
         return "success";
     }
 
+
+    /**
+     * 保存申请单
+     * @return
+     */
+    @RequestMapping("/saveApplicationDocuments")
+    @ResponseBody
+    public String saveApplicationDocuments(String name,String idnumber,String phone,String reason, HttpSession session){
+        Customer customer =(Customer)  session.getAttribute("cst");
+        ApplicationDocuments applicationDocuments = new ApplicationDocuments(String.valueOf(customer.getId()),name,idnumber,phone,reason,0);
+        return customerService.saveApplicationDocuments(applicationDocuments);
+    }
 }

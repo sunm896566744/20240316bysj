@@ -68,18 +68,7 @@ public class CustomerController {
         return "success";
     }
 
-    /**
-     * 保存申请单
-//     * @param obj
-     * @return
-     */
-    @RequestMapping("/saveApplicationDocuments")
-    @ResponseBody
-    public String saveApplicationDocuments(String name,String idnumber,String phone,String reason, HttpSession session){
-        Customer customer =(Customer)  session.getAttribute("cst");
-        ApplicationDocuments applicationDocuments = new ApplicationDocuments(String.valueOf(customer.getId()),name,idnumber,phone,reason,0);
-        return customerService.saveApplicationDocuments(applicationDocuments);
-    }
+
 
     /**
      * 查询培训员申请单
