@@ -38,6 +38,18 @@ public class ApplicationDocuments implements Serializable {
     private Integer status;
 
 
+    public ApplicationDocuments(String customer, String name, String idnumber, String phone, String reason, Integer status) {
+        this.customer = customer;
+        this.name = name;
+        this.idnumber = idnumber;
+        this.phone = phone;
+        this.reason = reason;
+        this.status = status;
+    }
+    public ApplicationDocuments(){
+
+    }
+
     public String getCustomer() {
         return customer;
     }

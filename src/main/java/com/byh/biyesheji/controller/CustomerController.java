@@ -9,6 +9,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -69,15 +70,15 @@ public class CustomerController {
 
     /**
      * 保存申请单
-     * @param obj
+//     * @param obj
      * @return
      */
     @RequestMapping("/saveApplicationDocuments")
     @ResponseBody
-    public String saveApplicationDocuments(ApplicationDocuments obj, HttpSession session){
+    public String saveApplicationDocuments(String name,String idnumber,String phone,String reason, HttpSession session){
         Customer customer =(Customer)  session.getAttribute("cst");
-        obj.setCustomer(String.valueOf(customer.getId()));
-        return customerService.saveApplicationDocuments(obj);
+        ApplicationDocuments applicationDocuments = new ApplicationDocuments(String.valueOf(customer.getId()),name,idnumber,phone,reason,0);
+        return customerService.saveApplicationDocuments(applicationDocuments);
     }
 
     /**
