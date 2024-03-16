@@ -13,6 +13,8 @@ public class Customer {
 
     private Integer status;
 
+    private Integer delivery;
+
     public Integer getId() {
         return id;
     }
@@ -49,6 +51,14 @@ public class Customer {
         return phone;
     }
 
+    public Integer getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(Integer delivery) {
+        this.delivery = delivery;
+    }
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
@@ -60,6 +70,8 @@ public class Customer {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+
 
     @Override
     public String toString() {

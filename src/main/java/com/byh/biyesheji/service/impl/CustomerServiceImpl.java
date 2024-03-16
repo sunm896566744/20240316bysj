@@ -1,6 +1,8 @@
 package com.byh.biyesheji.service.impl;
 
+import com.byh.biyesheji.dao.ApplicationDocumentsMap;
 import com.byh.biyesheji.dao.CustomerMapper;
+import com.byh.biyesheji.entity.ApplicationDocuments;
 import com.byh.biyesheji.pojo.Customer;
 import com.byh.biyesheji.pojo.CustomerExample;
 import com.byh.biyesheji.service.CustomerService;
@@ -14,6 +16,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerMapper customerMapper;
+    @Autowired
+    private ApplicationDocumentsMap applicationDocumentsMap;
     @Override
     public Customer foreLogin(Customer customer) {
         CustomerExample example = new CustomerExample();
@@ -44,12 +48,34 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void updateDeliveryById(int id, String status) {
+    public void updateDeliveryById(int id, int status) {
         // 先查询一下 确定
         Customer customer = customerMapper.selectByPrimaryKey(id);
-
-//        customerMapper.updateByPrimaryKey()
+        customer.setDelivery(status);
+        customer.setId(id);
+        customerMapper.updateByPrimaryKey(customer);
     }
+
+    @Override
+    public String saveApplicationDocuments(ApplicationDocuments obj) {
+        return applicationDocumentsMap.insert(obj) > 0 ? "success" : "error";
+    }
+
+    @Override
+    public List<ApplicationDocuments> getApplicationDocumentsList(ApplicationDocuments applicationDocuments) {
+        return applicationDocumentsMap.queryAll(applicationDocuments);
+    }
+
+    @Override
+    public String aApproved(ApplicationDocuments obj) {
+        // 同意
+        if(obj.getStatus() == 1){
+            updateDeliveryById(Integer.parseInt(obj.getCustomer()),obj.getStatus());
+        }
+
+        return applicationDocumentsMap.updateByPrimaryKey(obj) > 0  ? "success" : "error";
+    }
+
 
     @Override
     public void del(int id) {
