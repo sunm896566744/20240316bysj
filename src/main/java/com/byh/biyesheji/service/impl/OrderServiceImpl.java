@@ -106,5 +106,12 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.updateByPrimaryKeySelective(order);
     }
 
+    @Override
+    public void deliveryCompleted(int orderId) {
+        Order order = orderMapper.selectByPrimaryKey(orderId);
+        order.setStatus(3);
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
+
 
 }

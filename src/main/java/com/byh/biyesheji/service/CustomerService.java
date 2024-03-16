@@ -4,6 +4,7 @@ import com.byh.biyesheji.entity.ApplicationDocuments;
 import com.byh.biyesheji.pojo.Customer;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CustomerService extends CrudService<Customer>{
 
@@ -41,4 +42,6 @@ public interface CustomerService extends CrudService<Customer>{
      * @return
      */
     String aApproved(int id,int status);
+
+    List<Map<String,Object>> deliveryCount();
 }

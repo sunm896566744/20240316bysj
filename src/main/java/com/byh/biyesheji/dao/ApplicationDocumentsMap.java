@@ -76,5 +76,6 @@ public interface ApplicationDocumentsMap extends CrudDao<ApplicationDocuments>{
      * @return
      */
     List<ApplicationDocuments>  queryAll(ApplicationDocuments applicationDocuments);
+
 }
 

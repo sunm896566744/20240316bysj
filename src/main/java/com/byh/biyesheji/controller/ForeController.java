@@ -532,6 +532,20 @@ public class ForeController {
     }
 
 
+    /**
+     * 配送完成
+     * @param orderId
+     * @param session
+     * @return
+     */
+    @RequestMapping("/deliveryCompleted")
+    @ResponseBody
+    public String deliveryCompleted(int orderId, HttpSession session){
+        orderService.deliveryCompleted(orderId);
+        return "success";
+    }
+
+
 
     /**
      * 搜索商品

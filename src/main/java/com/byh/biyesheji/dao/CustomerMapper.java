@@ -1,9 +1,11 @@
 package com.byh.biyesheji.dao;
 
+import com.byh.biyesheji.entity.ApplicationDocuments;
 import com.byh.biyesheji.pojo.Customer;
 import com.byh.biyesheji.pojo.CustomerExample;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CustomerMapper extends CrudDao<Customer>{
 
@@ -15,4 +17,5 @@ public interface CustomerMapper extends CrudDao<Customer>{
      */
     void enableStatus(int id);
 
+    List<Map<String,Object>>deliveryCount();
 }

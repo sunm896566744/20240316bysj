@@ -148,4 +148,19 @@
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="deliveryCount" resultType="map" >
+    SELECT
+      c.name,
+      count( o.id ) count
+    FROM
+      order_ o
+      LEFT JOIN customer c ON o.delivery = c.id
+    WHERE
+      o.status = 3
+      AND o.delivery IS NOT NULL
+    GROUP BY
+      c.id,
+      c.name
+  </select>
+
 </mapper>

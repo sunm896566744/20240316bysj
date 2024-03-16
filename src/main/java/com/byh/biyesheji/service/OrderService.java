@@ -37,4 +37,6 @@ public interface OrderService extends CrudService<Order> {
      * @param id
      */
     void orderTaking(int orderId, Integer id);
+
+    void deliveryCompleted(int orderId);
 }

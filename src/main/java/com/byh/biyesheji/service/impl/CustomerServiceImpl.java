@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -83,6 +84,11 @@ public class CustomerServiceImpl implements CustomerService {
         }
 
         return applicationDocumentsMap.update(obj) > 0  ? "success" : "error";
+    }
+
+    @Override
+    public List<Map<String,Object>> deliveryCount() {
+        return customerMapper.deliveryCount();
     }
 
 

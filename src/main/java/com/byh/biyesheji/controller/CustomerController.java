@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户模块controller
@@ -71,7 +72,7 @@ public class CustomerController {
 
 
     /**
-     * 查询培训员申请单
+     * 查询配送申请单
      * @return
      */
     @RequestMapping("/getApplicationDocumentsList")
@@ -95,6 +96,21 @@ public class CustomerController {
     @ResponseBody
     public String aApproved(int id, int status){
         return customerService.aApproved(id,status);
+    }
+    /**
+     * 配送员统计页面
+     * @return
+     */
+    @RequestMapping("/deliveryCount")
+    public String deliveryCount(Model model, Page page){
+        PageHelper.offsetPage(page.getStart(),page.getCount());//分页查询
+        List<Map<String,Object>> list= customerService.deliveryCount();
+        int total = (int) new PageInfo<Map<String,Object>>(list).getTotal();//总条数
+        page.setTotal(total);
+
+        model.addAttribute("list",list);
+        model.addAttribute("totals",total);
+        return "courierpage/apply-courier-list";
     }
 
 }
