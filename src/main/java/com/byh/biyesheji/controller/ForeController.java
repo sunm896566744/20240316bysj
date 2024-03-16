@@ -468,6 +468,11 @@ public class ForeController {
         return "forepage/foreBought";
     }
 
+    @RequestMapping("/toMyDelivery")
+    public String toMyDelivery(){
+        return "orepage/foreBoughtf";
+    }
+
     /**
      * 查看我在配送中的页面
      * @param model
@@ -487,7 +492,7 @@ public class ForeController {
         orderItemService.fill(os);
 
         model.addAttribute("os", os);
-        return "forepage/foreBought";
+        return "orepage/foreBoughtf";
     }
     /**
      * 查看我在配送的历史页面

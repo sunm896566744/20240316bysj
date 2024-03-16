@@ -15,9 +15,9 @@
 <section class="Hui-article-box">
     <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
         <span class="c-gray en">&gt;</span>
-        订单管理
+        配送管理
         <span class="c-gray en">&gt;</span>
-        订单列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+        配送员申请列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
     <div class="Hui-article">
         <article class="cl pd-20">
             <div class="cl pd-5 bg-1 bk-gray mt-20">
@@ -26,13 +26,14 @@
             <table class="table table-border table-bordered table-bg" id="mytable">
                 <thead>
                 <tr>
-                    <th scope="col" colspan="10">台后订单列表</th>
+                    <th scope="col" colspan="10">配送员申请列表</th>
                 </tr>
                 <tr class="text-c">
                     <th width="">ID</th>
-                    <th>地址</th>
-                    <th>买家</th>
-                    <th>总价</th>
+                    <th>姓名</th>
+                    <th>联系方式</th>
+                    <th>身份证号码</th>
+                    <th>申请理由</th>
                     <th>状态</th>
                     <th width="150">操作</th>
                 </tr>
@@ -44,35 +45,42 @@
                     <td>${order.name}</td>
                     <td>${order.phone}</td>
                     <td>${order.idnumber}</td>
+                    <td>${order.reason}</td>
                     <td>
                         <c:if test="${order.status==0}">
-                            未支付
+                            申请中
                         </c:if>
                         <c:if test="${order.status==1}">
-                            未发货
+                            已同意
                         </c:if>
                         <c:if test="${order.status==2}">
-                            已发货
-                        </c:if>
-                        <c:if test="${order.status==3}">
-                            已收货
+                            已拒绝
                         </c:if>
                     </td>
                     <td>
-                        <a title="查看" href="javascript:;"
-                           onclick="orderIetm_list('订单详情','seeOrderItem?oid=${order.id}','1','500','310')"
-                           class="ml-5" style="text-decoration:none">
-                            <span class="label label-success radius">查看详情</span>
-                        </a>
-                        <c:if test="${order.status==1}">
-                            <a title="发货" href="/order/orderDelivery?id=${order.id}"
-                               class="ml-5" style="text-decoration:none">
-                                    <span class="label label-success radius">发货</span>
+<%--                        <a title="查看" href="javascript:;"--%>
+<%--                           onclick="orderIetm_list('订单详情','seeOrderItem?oid=${order.id}','1','500','310')"--%>
+<%--                           class="ml-5" style="text-decoration:none">--%>
+<%--                            <span class="label label-success radius">查看详情</span>--%>
+<%--                        </a>--%>
+                        <c:if test="${order.status==0}">
+                            <a class="operate-btn agree ml-5" data-id="${order.id}" style="text-decoration:none">
+                                <span class="label label-success radius">同意</span>
+                            </a>
+                            <a class="operate-btn reject ml-5" data-id="${order.id}" style="text-decoration:none">
+                                <span class="label radius">拒绝</span>
                             </a>
                         </c:if>
-                        <c:if test="${order.status==2}">
-                            <span class="label radius">已发货</span>
-                        </c:if>
+<%--                        <c:if test="${order.status==1}">--%>
+<%--                            <a class="operate-btn agreeCancel ml-5" data-id="${order.id}" style="text-decoration:none">--%>
+<%--                                <span class="label radius">取消同意</span>--%>
+<%--                            </a>--%>
+<%--                        </c:if>--%>
+<%--                        <c:if test="${order.status==2}">--%>
+<%--                            <a class="operate-btn rejectCancel ml-5" data-id="${order.id}" style="text-decoration:none">--%>
+<%--                                <span class="label radius">取消拒绝</span>--%>
+<%--                            </a>--%>
+<%--                        </c:if>--%>
                     </td>
                 </tr>
                 </c:forEach>
@@ -100,6 +108,37 @@
     function orderIetm_list(title,url,id,w,h){
         layer_show(title,url,w,h);
     }
+
+    $(function (){
+        $(".operate-btn").on("click",function (){
+            var ele = $(this)
+            var status = 0
+            var id = ele.attr("data-id")
+            if(ele.hasClass("agree")){
+                status = 1
+            }else if (ele.hasClass("reject")){
+                status = 2
+            }else if(ele.hasClass("agreeCancel") || ele.hasClass("rejectCancel")){
+                status = 0
+            }
+            $.ajax({
+                url:"aApproved",
+                data: {
+                    id: id,
+                    status:status
+                },
+                type:"get",
+                success:function(data){
+                    if(data=="success"){
+                        alert("操作成功");
+                        location.replace(location.href);
+                    }else{
+                        alert("操作失败");
+                    }
+                }
+            });
+        })
+    })
 
 
 </script>

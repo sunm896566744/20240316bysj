@@ -36,6 +36,7 @@
                     <th>地址</th>
                     <th>手机</th>
                     <th>用户等级</th>
+                    <th>配送员</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -53,10 +54,20 @@
                             <c:if test="${cst.status==0}">普通用户</c:if>
                         </td>
                         <td>
+                            <c:if test="${cst.delivery==1}">是</c:if>
+                            <c:if test="${cst.delivery!=1}">否</c:if>
+                        </td>
+                        <td>
                             <a title="设为会员" href="javascript:;"
                                onclick="shezhihuiyuan(this,${cst.id},${cst.status})"
                                class="ml-5" style="text-decoration:none">
                                 <span class="label label-success radius">设为会员</span>
+                            </a>
+                            <a title="设为配送员" href="javascript:;"
+                               onclick="setDelivery(this,${cst.id},${cst.delivery})"
+                               class="ml-5" style="text-decoration:none">
+                                <c:if test="${cst.delivery==1}"><span class="label radius">取消配送员</c:if>
+                                <c:if test="${cst.delivery!=1}"><span class="label label-success radius">设为配送员</span></c:if>
                             </a>
                             <a deleteLink="true" title="删除" href="/customer/del?id=${cst.id}"
                                class="ml-5" style="text-decoration:none">
@@ -119,6 +130,28 @@
         });
     }
 
+    function setDelivery(obj,id,status) {
+        var msg = "确认设为配送员吗?"
+        if(status==1){
+            msg = "确认取消配送员吗?"
+        }
+        layer.confirm(msg,function(){
+            $.get(
+                "updateDeliveryById",
+                {
+                    "id":id,
+                    status:status?0:1,
+                },
+                function (result) {
+                    console.log(result)
+                    if("success"==result){
+                        layer.msg('操作成功!', {icon: 6,time:3000});
+                        location.reload();
+                    }
+                }
+            );
+        });
+    }
 </script>
 
 </body>

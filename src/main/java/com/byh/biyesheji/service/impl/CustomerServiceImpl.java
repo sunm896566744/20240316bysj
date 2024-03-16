@@ -53,7 +53,7 @@ public class CustomerServiceImpl implements CustomerService {
         Customer customer = customerMapper.selectByPrimaryKey(id);
         customer.setDelivery(status);
         customer.setId(id);
-        customerMapper.updateByPrimaryKey(customer);
+        customerMapper.updateByPrimaryKeySelective(customer);
     }
 
     @Override
@@ -75,16 +75,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public String aApproved(int id,int status) {
-        ApplicationDocuments obj = new ApplicationDocuments();
-        obj.setId(id);
+        ApplicationDocuments obj = applicationDocumentsMap.queryById(id);
         obj.setStatus(status);
-
         // 同意
         if(status == 1){
             updateDeliveryById(Integer.parseInt(obj.getCustomer()),obj.getStatus());
         }
 
-        return applicationDocumentsMap.updateByPrimaryKeySelective(obj) > 0  ? "success" : "error";
+        return applicationDocumentsMap.update(obj) > 0  ? "success" : "error";
     }
 
 

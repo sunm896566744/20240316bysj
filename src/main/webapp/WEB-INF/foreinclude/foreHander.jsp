@@ -257,9 +257,12 @@
                                     </ul>
                                 </li>
                                 <li><a href="/fore/forebought">我的订单</a></li>
+                                <c:if test="${cst.delivery==1}">
+                                    <li><a href="/fore/toMyDelivery">我的配送</a></li>
+                                </c:if>
                                 <li><a href="/fore/foreZixuns">校园资讯</a></li>
                                 <li><a href="/fore/faq">常问问题</a></li>
-                            </ul>
+                            </ul=
                         </nav>
                     </div>
                     <!-- end of navigation section -->
