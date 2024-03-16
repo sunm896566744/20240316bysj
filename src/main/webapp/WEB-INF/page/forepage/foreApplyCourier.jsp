@@ -103,17 +103,27 @@
                 "foreIsLogin",
                 function(result) {
                     if (result=="true"){ //已登录则加入购物车
-                        if(0==$("#name").val().length||0==$("#phone").val().length || 0==$("#idnumber").val().length || 0==$("#reason").val().length){
+                        let name = $("#name").val();
+                        let phone = $("#phone").val();
+                        let idnumber = $("#idnumber").val();
+                        let reason = $("#reason").val();
+                        if(name == "" || phone == "" || idnumber == "" || reason == ""){
                             $("span.errorMessage").html("请将内容填写完整");
                             $("div.loginErrorMessageDiv").show();
+                        }else if(!/^1[34578]\d{9}$/.test(phone)){
+                            $("span.errorMessage").html("手机号填写有误");
+                            $("div.loginErrorMessageDiv").show();
+                        }else if(!/^[1-9]\d{5}(19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[Xx\d]$/.test(idnumber)){
+                            $("span.errorMessage").html("身份证号码填写有误");
+                            $("div.loginErrorMessageDiv").show();
                         }else{
-                            $.post(
+                            $.get(
                                 "/customer/saveApplicationDocuments",
                                 {
-                                    name:$("#name").val(),
-                                    phone: $("#phone").val(),
-                                    idnumber:$("#idnumber").val(),
-                                    reason: $("#reason").val()
+                                    name:name,
+                                    phone: phone,
+                                    idnumber:idnumber,
+                                    reason: reason
                                 },
                                 function(data){
                                     if(data=="success"){
@@ -124,7 +134,7 @@
                                 }
                             );
                         }
-                    }else {  //未登录
+                    } else {  //未登录
                         $("span.errorMessage").html("请先登录");
                     }
                 }

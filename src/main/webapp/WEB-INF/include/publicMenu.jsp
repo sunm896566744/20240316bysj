@@ -47,6 +47,15 @@
                 </ul>
             </dd>
         </dl>
+        <dl id="menu-courier">
+            <dt><i class="Hui-iconfont">&#xe613;</i> 配送管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a href="/order/list" title="配送员申请列表">配送员申请列表</a></li>
+                    <li><a href="/order/list" title="配送统计列表">配送统计列表</a></li>
+                </ul>
+            </dd>
+        </dl>
         <dl id="menu-admin">
             <dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
