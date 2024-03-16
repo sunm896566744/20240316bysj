@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -73,7 +74,9 @@ public class CustomerController {
      */
     @RequestMapping("/saveApplicationDocuments")
     @ResponseBody
-    public String saveApplicationDocuments(ApplicationDocuments obj){
+    public String saveApplicationDocuments(ApplicationDocuments obj, HttpSession session){
+        Customer customer =(Customer)  session.getAttribute("cst");
+        obj.setCustomer(String.valueOf(customer.getId()));
         return customerService.saveApplicationDocuments(obj);
     }
 

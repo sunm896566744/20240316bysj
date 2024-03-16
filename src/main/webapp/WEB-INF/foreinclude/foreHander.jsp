@@ -43,6 +43,9 @@
     <!-- Modernizer JS -->
     <script src="${pageContext.request.contextPath}/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
+    <!-- Jquery JS -->
+    <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.min.js"></script>
+
 </head>
 
 <body class="grey-bg">
@@ -81,6 +84,8 @@
 
                         <span class="separator pl-15 pr-15">|</span>
 
+
+
                         <!--=======  End of single dropdown  =======-->
                         <c:if test="${cst!=null}">
                             <div class="single-dropdown">
@@ -89,6 +94,10 @@
                                      <c:if test="${cst.status==0}">(普通用户)</c:if>
                                     </span>
                                 </a>
+                            </div>
+                            <span class="separator pl-15 pr-15">|</span>
+                            <div class="single-dropdown">
+                                <a href="foreApplyCourierUI"><span>申请配送员</span></a>
                             </div>
                             <span class="separator pl-15 pr-15">|</span>
                             <div class="single-dropdown">

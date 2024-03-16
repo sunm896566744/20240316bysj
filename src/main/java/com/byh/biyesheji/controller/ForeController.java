@@ -125,6 +125,15 @@ public class ForeController {
     }
 
     /**
+     * 申请配送员页面
+     * @return
+     */
+    @RequestMapping("/foreApplyCourierUI")
+    public String foreApplyCourierUI(){
+        return "forepage/foreApplyCourier";
+    }
+
+    /**
      * 模态窗口登陆 验证
      * @param customer
      * @param session
