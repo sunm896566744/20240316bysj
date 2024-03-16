@@ -19,7 +19,7 @@
                     <nav>
                         <ul>
                             <li class="parent-page"><a href="/fore/foreIndex">Home</a></li>
-                            <li>orders</li>
+                            <li>receivingOrdersHistory</li>
                         </ul>
                     </nav>
                 </div>
@@ -57,7 +57,7 @@
                             <!-- Single Tab Content Start -->
                             <div class="tab-pane fade show active"  role="tabpanel">
                                 <div class="myaccount-content">
-                                    <h3>Orders</h3>
+                                    <h3>历史接单</h3>
                                     <c:forEach items="${os}" var="order" varStatus="vs">
                                     <ul style="float:left" class="order_list_th">
                                         <li class="col01">${vs.count}&nbsp;&nbsp;&nbsp;&nbsp;订单号：${order.code},已支付</li>
@@ -175,7 +175,6 @@
        $('#myModal').modal('show');
        //评价功能
    }
-
 </script>
 <!--====  End of My Account page content  ====-->
 <%@ include file="../../foreinclude/foreFooter.jsp"%>

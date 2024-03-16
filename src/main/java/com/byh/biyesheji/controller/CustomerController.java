@@ -110,7 +110,7 @@ public class CustomerController {
 
         model.addAttribute("list",list);
         model.addAttribute("totals",total);
-        return "courierpage/apply-courier-list";
+        return "courierpage/count-list";
     }
 
 }

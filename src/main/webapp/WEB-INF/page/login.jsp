@@ -15,7 +15,7 @@
 
     <style type="text/css">
         *{padding:0px;margin:0px;}
-        body{font-family:Arial, Helvetica, sans-serif;background:url(${pageContext.request.contextPath }/images/grass.jpg);font-size:12px;}
+        body{font-family:Arial, Helvetica, sans-serif;background:url(${pageContext.request.contextPath }/images/grass.jpg) no-repeat;font-size:12px; background-size: 100%}
         img{border:0;}
         .lg{width:468px;height:468px;margin:100px auto;background:url(${pageContext.request.contextPath }/images/login_bg.png) no-repeat;}
         .lg_top{ height:200px;width:468px;}

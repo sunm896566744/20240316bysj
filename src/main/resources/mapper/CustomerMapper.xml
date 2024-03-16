@@ -151,7 +151,9 @@
   <select id="deliveryCount" resultType="map" >
     SELECT
       c.name,
-      count( o.id ) count
+      count( o.id ) count,
+      c.phone,
+      c.address
     FROM
       order_ o
       LEFT JOIN customer c ON o.delivery = c.id
@@ -160,7 +162,9 @@
       AND o.delivery IS NOT NULL
     GROUP BY
       c.id,
-      c.name
+      c.name,
+      c.phone,
+      c.address
   </select>
 
 </mapper>

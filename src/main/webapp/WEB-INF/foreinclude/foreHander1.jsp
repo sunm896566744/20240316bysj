@@ -90,6 +90,12 @@
                                     </span>
                                 </a>
                             </div>
+                            <c:if test="${cst.delivery!=1}">
+                                <span class="separator pl-15 pr-15">|</span>
+                                <div class="single-dropdown">
+                                    <a href="foreApplyCourierUI"><span>申请配送员</span></a>
+                                </div>
+                            </c:if>
                             <span class="separator pl-15 pr-15">|</span>
                             <div class="single-dropdown">
                                 <a href="/fore/foreCstLoginOut"><span>退出</span></a>
@@ -229,6 +235,16 @@
                             <ul>
                                 <li><a href="/fore/forecart">我的购物车</a></li>
                                 <li><a href="/fore/forebought">我的订单</a></li>
+                                <c:if test="${cst.delivery==1}">
+                                    <li>
+                                        <a href="">我的配送</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="/fore/receivingOrders" class="fruit">我要接单</a></li>
+                                            <li><a href="/fore/inReceivingOrders " class="fruit">正在派送</a></li>
+                                            <li><a href="/fore/receivingOrdersHistory" class="fruit">历史接单</a></li>
+                                        </ul>
+                                    </li>
+                                </c:if>
                                 <li><a href="/fore/foreZixuns">校园资讯</a></li>
                                 <li><a href="/fore/faq">常问问题</a></li>
                             </ul>

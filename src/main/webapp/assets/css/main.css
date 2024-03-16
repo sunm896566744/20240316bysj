@@ -6756,3 +6756,15 @@ span.required {
     border: 1px solid #363f4d; }
 
 /*=====  End of 21. Footer  ======*/
+
+.myaccount-content .operate-btn {
+  display: block;
+  padding: 0 14px;
+  background-color: #00BCD4;
+  border-radius: 3px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  border: 1px solid #00BCD4;
+}

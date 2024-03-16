@@ -465,12 +465,7 @@ public class ForeController {
         orderItemService.fill(os);
 
         model.addAttribute("os", os);
-        return "forepage/foreBought";
-    }
-
-    @RequestMapping("/toMyDelivery")
-    public String toMyDelivery(){
-        return "orepage/foreBoughtf";
+        return "forepage/foreReceivingOrders";
     }
 
     /**
@@ -484,7 +479,7 @@ public class ForeController {
         Customer customer = (Customer) session.getAttribute("cst");
         // 获取所有已发货的订单
         Order order = new Order();
-        order.setStatus(2);
+        order.setStatus(4);
         order.setDelivery(customer.getId());
         List<Order> os= orderService.findOrderList(order);
 
@@ -492,7 +487,7 @@ public class ForeController {
         orderItemService.fill(os);
 
         model.addAttribute("os", os);
-        return "orepage/foreBoughtf";
+        return "forepage/foreInReceivingOrders";
     }
     /**
      * 查看我在配送的历史页面
@@ -513,7 +508,7 @@ public class ForeController {
         orderItemService.fill(os);
 
         model.addAttribute("os", os);
-        return "forepage/foreBought";
+        return "forepage/foreReceivingOrdersHistory";
     }
 
 

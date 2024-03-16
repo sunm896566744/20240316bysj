@@ -19,7 +19,7 @@
                     <nav>
                         <ul>
                             <li class="parent-page"><a href="/fore/foreIndex">Home</a></li>
-                            <li>orders</li>
+                            <li>InReceivingOrders</li>
                         </ul>
                     </nav>
                 </div>
@@ -57,7 +57,7 @@
                             <!-- Single Tab Content Start -->
                             <div class="tab-pane fade show active"  role="tabpanel">
                                 <div class="myaccount-content">
-                                    <h3>Orders</h3>
+                                    <h3>正在配送</h3>
                                     <c:forEach items="${os}" var="order" varStatus="vs">
                                     <ul style="float:left" class="order_list_th">
                                         <li class="col01">${vs.count}&nbsp;&nbsp;&nbsp;&nbsp;订单号：${order.code},已支付</li>
@@ -78,16 +78,21 @@
                                                     </c:forEach>
                                                 </td>
                                                 <td width="15%">${order.total}元</td>
-                                                <td width="15%" >
+                                                <td width="10%" >
                                                     <div class="hover-icons">
                                                         <a href="#" id="addressMsg" onclick="showAddressMsg('${order.address}');" title="${order.address}">
                                                             <img src="${pageContext.request.contextPath}/images/address.png" width="30px" height="30px">
                                                         </a>
                                                     </div>
                                                 </td>
-                                                <td width="15%">
+                                                <td width="10%">
                                                     <c:if test="${order.status==1}">未发货</c:if>
                                                     <c:if test="${order.status==2}">已发货</c:if>
+                                                    <c:if test="${order.status==3}">已收货</c:if>
+                                                    <c:if test="${order.status==4}">配送中</c:if>
+                                                </td>
+                                                <td width="10%">
+                                                    <a><span class="operate-btn" onclick="receiveOrders(${order.id})">完成</span></a>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -172,6 +177,25 @@
        pid=productid;
        $('#myModal').modal('show');
        //评价功能
+   }
+
+   function receiveOrders(id) {
+       if (confirm("你确定要执行这个操作吗？")) {
+           // 如果用户点击了"确定"，这里的代码会被执行
+           $.get(
+               "deliveryCompleted",
+               {
+                   "orderId":id,
+               },
+               function (result) {
+                   console.log(result)
+                   if("success"==result){
+                       alert("操作成功");
+                       location.reload();
+                   }
+               }
+           );
+       }
    }
 
 </script>

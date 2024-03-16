@@ -52,7 +52,7 @@
             <dd>
                 <ul>
                     <li><a href="/customer/getApplicationDocumentsList" title="配送员申请列表">配送员申请列表</a></li>
-                    <li><a href="/courier/countList" title="配送统计列表">配送统计列表</a></li>
+                    <li><a href="/customer/deliveryCount" title="配送统计列表">配送统计列表</a></li>
                 </ul>
             </dd>
         </dl>
