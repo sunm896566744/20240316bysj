@@ -38,8 +38,7 @@ public interface CustomerService extends CrudService<Customer>{
 
     /**
      * 审批通过
-     * @param obj
      * @return
      */
-    String aApproved(ApplicationDocuments obj);
+    String aApproved(int id,int status);
 }

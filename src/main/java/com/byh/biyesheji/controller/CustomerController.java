@@ -75,7 +75,6 @@ public class CustomerController {
      * @return
      */
     @RequestMapping("/getApplicationDocumentsList")
-    @ResponseBody
     public String getApplicationDocumentsList(Model model, Page page,ApplicationDocuments applicationDocuments){
         PageHelper.offsetPage(page.getStart(),page.getCount());//分页查询
         List<ApplicationDocuments> list= customerService.getApplicationDocumentsList(applicationDocuments);
@@ -84,19 +83,18 @@ public class CustomerController {
 
         model.addAttribute("list",list);
         model.addAttribute("totals",total);
-        return "cstpage/cst-list";
+        return "courierpage/apply-courier-list";
     }
 
 
     /**
      * 审批通过
-     * @param obj
      * @return
      */
     @RequestMapping("/aApproved")
     @ResponseBody
-    public String aApproved(ApplicationDocuments obj){
-        return customerService.aApproved(obj);
+    public String aApproved(int id, int status){
+        return customerService.aApproved(id,status);
     }
 
 }

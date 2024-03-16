@@ -74,13 +74,17 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public String aApproved(ApplicationDocuments obj) {
+    public String aApproved(int id,int status) {
+        ApplicationDocuments obj = new ApplicationDocuments();
+        obj.setId(id);
+        obj.setStatus(status);
+
         // 同意
-        if(obj.getStatus() == 1){
+        if(status == 1){
             updateDeliveryById(Integer.parseInt(obj.getCustomer()),obj.getStatus());
         }
 
-        return applicationDocumentsMap.updateByPrimaryKey(obj) > 0  ? "success" : "error";
+        return applicationDocumentsMap.updateByPrimaryKeySelective(obj) > 0  ? "success" : "error";
     }
 
 

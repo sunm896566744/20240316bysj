@@ -38,12 +38,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${os}" var="order">
+                <c:forEach items="${list}" var="order">
                 <tr class="text-c">
                     <td>${order.id}</td>
-                    <td>${order.address}</td>
-                    <td>${order.customer.name}</td>
-                    <td>${order.total}</td>
+                    <td>${order.name}</td>
+                    <td>${order.phone}</td>
+                    <td>${order.idnumber}</td>
                     <td>
                         <c:if test="${order.status==0}">
                             未支付

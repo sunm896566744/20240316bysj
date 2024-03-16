@@ -95,10 +95,12 @@
                                     </span>
                                 </a>
                             </div>
-                            <span class="separator pl-15 pr-15">|</span>
-                            <div class="single-dropdown">
-                                <a href="foreApplyCourierUI"><span>申请配送员</span></a>
-                            </div>
+                            <c:if test="${cst.delivery!=1}">
+                                <span class="separator pl-15 pr-15">|</span>
+                                <div class="single-dropdown">
+                                    <a href="foreApplyCourierUI"><span>申请配送员</span></a>
+                                </div>
+                            </c:if>
                             <span class="separator pl-15 pr-15">|</span>
                             <div class="single-dropdown">
                                 <a href="/fore/foreCstLoginOut"><span>退出</span></a>

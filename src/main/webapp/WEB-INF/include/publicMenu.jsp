@@ -51,8 +51,8 @@
             <dt><i class="Hui-iconfont">&#xe613;</i> 配送管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="/order/list" title="配送员申请列表">配送员申请列表</a></li>
-                    <li><a href="/order/list" title="配送统计列表">配送统计列表</a></li>
+                    <li><a href="/customer/getApplicationDocumentsList" title="配送员申请列表">配送员申请列表</a></li>
+                    <li><a href="/courier/countList" title="配送统计列表">配送统计列表</a></li>
                 </ul>
             </dd>
         </dl>

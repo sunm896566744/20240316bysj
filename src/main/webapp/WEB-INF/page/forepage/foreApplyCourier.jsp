@@ -117,22 +117,25 @@
                             $("span.errorMessage").html("身份证号码填写有误");
                             $("div.loginErrorMessageDiv").show();
                         }else{
-                            $.get(
-                                "/customer/saveApplicationDocuments",
-                                {
-                                    name:name,
-                                    phone: phone,
-                                    idnumber:idnumber,
-                                    reason: reason
-                                },
-                                function(data){
+                            var params = {
+                                name:name,
+                                phone: phone,
+                                idnumber:idnumber,
+                                reason: reason
+                            }
+                            $.ajax({
+                                url:"saveApplicationDocuments",
+                                data: params,
+                                type:"get",
+                                success:function(data){
                                     if(data=="success"){
                                         alert("提交申请成功");
+                                        window.open('/fore/foreIndex',"_self")
                                     }else{
-                                        alert("提交申请失败");
+                                        alert("您已有在审批的单据，请稍后在申请！");
                                     }
                                 }
-                            );
+                            });
                         }
                     } else {  //未登录
                         $("span.errorMessage").html("请先登录");
