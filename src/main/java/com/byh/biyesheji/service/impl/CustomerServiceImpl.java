@@ -58,6 +58,13 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public String saveApplicationDocuments(ApplicationDocuments obj) {
+        ApplicationDocuments param = new ApplicationDocuments();
+        param.setStatus(0);
+        param.setCustomer(obj.getCustomer());
+        List<ApplicationDocuments> list = applicationDocumentsMap.queryAll(param);
+        if(list != null && list.size() > 0) {
+            return "您已有在审批的单据，请稍后在申请！";
+        }
         return applicationDocumentsMap.insert(obj) > 0 ? "success" : "error";
     }
 
