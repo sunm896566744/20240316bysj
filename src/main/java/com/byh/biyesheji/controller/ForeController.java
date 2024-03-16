@@ -448,6 +448,87 @@ public class ForeController {
     }
 
     /**
+     * 接单页面所有已发货订单
+     * @param model
+     * @param session
+     * @return
+     */
+    @RequestMapping("/receivingOrders")
+    public String receivingOrders(Model model, HttpSession session){
+
+        // 获取所有已发货的订单
+        Order order = new Order();
+        order.setStatus(2);
+        List<Order> os= orderService.findOrderList(order);
+
+        //给每个订单的订单项设置属性值，如orderitem、product
+        orderItemService.fill(os);
+
+        model.addAttribute("os", os);
+        return "forepage/foreBought";
+    }
+
+    /**
+     * 查看我在配送中的页面
+     * @param model
+     * @param session
+     * @return
+     */
+    @RequestMapping("/inReceivingOrders")
+    public String inReceivingOrders(Model model, HttpSession session){
+        Customer customer = (Customer) session.getAttribute("cst");
+        // 获取所有已发货的订单
+        Order order = new Order();
+        order.setStatus(2);
+        order.setDelivery(customer.getId());
+        List<Order> os= orderService.findOrderList(order);
+
+        //给每个订单的订单项设置属性值，如orderitem、product
+        orderItemService.fill(os);
+
+        model.addAttribute("os", os);
+        return "forepage/foreBought";
+    }
+    /**
+     * 查看我在配送的历史页面
+     * @param model
+     * @param session
+     * @return
+     */
+    @RequestMapping("/receivingOrdersHistory")
+    public String receivingOrdersHistory(Model model, HttpSession session){
+        Customer customer = (Customer) session.getAttribute("cst");
+        // 获取所有已发货的订单
+        Order order = new Order();
+        order.setStatus(3);
+        order.setDelivery(customer.getId());
+        List<Order> os= orderService.findOrderList(order);
+
+        //给每个订单的订单项设置属性值，如orderitem、product
+        orderItemService.fill(os);
+
+        model.addAttribute("os", os);
+        return "forepage/foreBought";
+    }
+
+
+    /**
+     * 接单
+     * @param orderId
+     * @param session
+     * @return
+     */
+    @RequestMapping("/orderTaking")
+    @ResponseBody
+    public String orderTaking(int orderId, HttpSession session){
+        Customer c = (Customer) session.getAttribute("cst");
+        orderService.orderTaking(orderId, c.getId());
+        return "success";
+    }
+
+
+
+    /**
      * 搜索商品
      * @param model
      * @param pName

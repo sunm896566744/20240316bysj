@@ -28,4 +28,13 @@ public interface OrderService extends CrudService<Order> {
      */
     public List<Order> list(int cstid);
 
+
+    List<Order> findOrderList(Order order);
+
+    /**
+     * 接单
+     * @param orderId
+     * @param id
+     */
+    void orderTaking(int orderId, Integer id);
 }

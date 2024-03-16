@@ -13,6 +13,8 @@ public class Order {
 
     private Integer cstid;
 
+    private Integer delivery;
+
     private List<OrderItem> orderItems;
 
     private Customer customer;
@@ -91,6 +93,14 @@ public class Order {
 
     public void setTotalNumber(int totalNumber) {
         this.totalNumber = totalNumber;
+    }
+
+    public Integer getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(Integer delivery) {
+        this.delivery = delivery;
     }
 
     @Override

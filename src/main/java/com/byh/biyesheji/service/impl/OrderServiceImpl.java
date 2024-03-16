@@ -88,4 +88,23 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.selectByExample(example);
     }
 
+    @Override
+    public List<Order> findOrderList(Order order) {
+        return orderMapper.queryAll(order);
+    }
+
+    /**
+     * 接单
+     * @param orderId
+     * @param id
+     */
+    @Override
+    public void orderTaking(int orderId, Integer id) {
+        Order order = orderMapper.selectByPrimaryKey(orderId);
+        order.setStatus(4);
+        order.setDelivery(id);
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
+
+
 }
