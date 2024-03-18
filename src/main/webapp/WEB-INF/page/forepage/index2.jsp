@@ -21,12 +21,12 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-7 col-xl-6 col-md-7 text-center">
-                                <div class="slider-content">
-                                    <p>舌尖美食，一步到位</p>
-                                    <h1>美味无法抵挡</h1>
-                                    <p>现在下单满299元即可优惠30元,限时优惠.</p>
-                                    <a href="foreDetailUI?id=30" class="slider-btn">查看详情</a>
-                                </div>
+<%--                                <div class="slider-content1111">--%>
+<%--                                    <p>舌尖美食，一步到位</p>--%>
+<%--                                    <h1>美味无法抵挡</h1>--%>
+<%--                                    <p>现在下单满299元即可优惠30元,限时优惠.</p>--%>
+<%--                                    <a href="foreDetailUI?id=30" class="slider-btn1111">查看详情</a>--%>
+<%--                                </div>--%>
                             </div>
                         </div>
                     </div>
@@ -45,12 +45,12 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-7 col-xl-6 col-md-7 text-center">
-                                <div class="slider-content">
-                                    <p>新客户享受八折优惠</p>
-                                    <h1>巧克力蛋糕</h1>
-                                    <p>chocolate cake 美食上新.</p>
-                                    <a href="foreDetailUI?id=13" class="slider-btn">查看详情</a>
-                                </div>
+<%--                                <div class="slider-content1">--%>
+<%--                                    <p>新客户享受八折优惠</p>--%>
+<%--                                    <h1>巧克力蛋糕</h1>--%>
+<%--                                    <p>chocolate cake 美食上新.</p>--%>
+<%--                                    <a href="foreDetailUI?id=13" class="slider-btn">查看详情</a>--%>
+<%--                                </div>--%>
                             </div>
                         </div>
                     </div>
@@ -70,12 +70,12 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-7 col-xl-6 col-md-7 text-center">
-                                <div class="slider-content">
-                                    <p>周年庆牛排特惠</p>
-                                    <h1>极致美食</h1>
-                                    <p>新品享乐惠，品尝好滋味.</p>
-                                    <a href="foreDetailUI?id=31" class="slider-btn">查看详情</a>
-                                </div>
+<%--                                <div class="slider-content1">--%>
+<%--                                    <p>周年庆牛排特惠</p>--%>
+<%--                                    <h1>极致美食</h1>--%>
+<%--                                    <p>新品享乐惠，品尝好滋味.</p>--%>
+<%--                                    <a href="foreDetailUI?id=31" class="slider-btn">查看详情</a>--%>
+<%--                                </div>--%>
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                             <!--=======  End of sidebar  =======-->
                         </div>
                         <!--=======  banner  =======-->
-                        <div class="slider-banner home-four-banner slider-border banner-bg banner-bg-4">
+                        <div class="slider-banner home-four-banner slider-border banner-bg banner-bg-${vs.getCount()}">
                             <div class="banner-text h-100"></div>
                         </div>
                         <!--=======  End of banner  =======-->

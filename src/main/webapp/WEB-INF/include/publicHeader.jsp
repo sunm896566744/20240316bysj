@@ -3,7 +3,6 @@
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
         <div class="container-fluid cl">
-            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/fore/foreIndex" target="_blank">前台首页</a>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/index">后台首页</a>
 

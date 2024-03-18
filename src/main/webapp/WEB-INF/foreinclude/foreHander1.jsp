@@ -141,37 +141,37 @@
                     <div class="header-feature-container mt-md-15 mt-sm-15">
                         <!--=======  single feature  =======-->
 
-                        <div class="single-feature d-flex">
-                            <div class="image">
-                                <i class="icon ion-md-globe"></i>
-                            </div>
-                            <div class="content">
-                                <h5>免费送货</h5>
-                                <p>所有订单免运费</p>
-                            </div>
-                        </div>
+<%--                        <div class="single-feature d-flex">--%>
+<%--                            <div class="image">--%>
+<%--                                <i class="icon ion-md-globe"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="content">--%>
+<%--                                <h5>免费送货</h5>--%>
+<%--                                <p>所有订单免运费</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
                         <!--=======  End of single feature  =======-->
                         <!--=======  single feature  =======-->
-                        <div class="single-feature d-flex">
-                            <div class="image">
-                                <i class="icon ion-md-checkmark-circle-outline"></i>
-                            </div>
-                            <div class="content">
-                                <h5>退货</h5>
-                                <p>下单5分钟内无条件取消</p>
-                            </div>
-                        </div>
+<%--                        <div class="single-feature d-flex">--%>
+<%--                            <div class="image">--%>
+<%--                                <i class="icon ion-md-checkmark-circle-outline"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="content">--%>
+<%--                                <h5>退货</h5>--%>
+<%--                                <p>下单5分钟内无条件取消</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
                         <!--=======  End of single feature  =======-->
                         <!--=======  single feature  =======-->
-                        <div class="single-feature d-flex mb-sm-0">
-                            <div class="image">
-                                <i class="icon ion-md-notifications-outline"></i>
-                            </div>
-                            <div class="content">
-                                <h5>会员折扣</h5>
-                                <p>每个订单超过$ 120.00</p>
-                            </div>
-                        </div>
+<%--                        <div class="single-feature d-flex mb-sm-0">--%>
+<%--                            <div class="image">--%>
+<%--                                <i class="icon ion-md-notifications-outline"></i>--%>
+<%--                            </div>--%>
+<%--                            <div class="content">--%>
+<%--                                <h5>会员折扣</h5>--%>
+<%--                                <p>每个订单超过$ 120.00</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
                         <!--=======  End of single feature  =======-->
                     </div>
                     <!--=======  End of header feature container  =======-->

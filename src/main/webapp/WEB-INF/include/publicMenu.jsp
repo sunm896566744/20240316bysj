@@ -76,6 +76,9 @@
                 </dd>
             </dl>
         </c:if>
+        <dl id="menu-admin">
+            <dt><i class="Hui-iconfont">&#xe62d;</i> <a href="/fore/foreIndex">前台首页</a></dt>
+        </dl>
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
